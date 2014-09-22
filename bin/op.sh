@@ -1,11 +1,11 @@
 #!/bin/sh
 
 function restart(){
-    #stop
+    stop
     sleep 3
     path=`pwd`
     cd $path
-    nohup python26 main.py  &
+    python26 main.py  &
     #cd /home/www/lixiaopeng/ios-pushserver/bin
     #nohup python26 main.py -c ../conf/push.conf  > /dev/null &
 }
@@ -15,7 +15,7 @@ function start(){
 }
 
 function stop(){
-    ps -ef |grep main.py|grep -v grep|awk '{print $2}'|xargs kill > /dev/null 
+    ps -ef |grep main.py|grep -v vim|grep -v grep|awk '{print $2}'|xargs kill > /dev/null 
 }
 
 function usage(){
