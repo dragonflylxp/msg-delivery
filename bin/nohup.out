@@ -1,3 +1,0 @@
-WARNING:tornado.access:404 GET /test (192.168.12.117) 0.54ms
-WARNING:tornado.access:404 GET /sdfsf (192.168.12.117) 0.36ms
-WARNING:tornado.access:404 GET /haha (192.168.12.117) 0.45ms
