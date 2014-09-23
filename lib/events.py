@@ -29,6 +29,9 @@ class msgEvent(object):
         return self
 
 
+    def set_now(self):
+        self.t = '-1'
+
     def is_now(self):
         return self.t == '-1'
 

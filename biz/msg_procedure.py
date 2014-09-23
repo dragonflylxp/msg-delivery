@@ -6,6 +6,12 @@
 
 import tornado.ioloop
 
+APP_PATH=os.path.dirname(os.path.dirname(os.path.abspath(__file__))) 
+sys.path.append(os.path.join(APP_PATH,'lib'))
+import db_tools
+
+redis_conn = db_tools.get_redis("msg")
+
 def process(evt, handler):
     if evt.is_multi():
         multi_msg_proc(evt.b, evt.u)
