@@ -5,7 +5,7 @@ function restart(){
     sleep 3
     path=`pwd`
     cd $path
-    python26 main.py  &
+    python26 main.py -c /home/www/lixiaopeng/github/msg-delivery/conf/delivery.conf  &
     #cd /home/www/lixiaopeng/ios-pushserver/bin
     #nohup python26 main.py -c ../conf/push.conf  > /dev/null &
 }
