@@ -16,7 +16,6 @@ def set_up(confs):
 redis_pools = {}
 def get_redis(dbid, standalone=False):
     conf = configs['Redis'][dbid].copy()
-    return conf
     if standalone:
         conf.pop('max_connections', None)
         return redis.Redis(**conf)
