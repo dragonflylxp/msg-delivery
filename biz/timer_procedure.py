@@ -125,10 +125,12 @@ class msgTimer(object):
         logger.debug("Event-timer callback![ TIMER:%s NOW:%s ]" % (t, time.time()))
         #将t时刻的事件全部处理
         key = REDIS_EVT_LST_PREFIX + t
-        while True:
+        len = self.R.llen(key)
+        logger.debug("Scan event list![ KEY:%s TOTAL:%d ]" % (key, len))
+        for i in range(len):
             str = self.R.lpop(key)
             logger.debug("Pop a event from list![ KEY:%s EVT:%s ]" % (key, str))
-            if not str: break 
+            if not str: continue 
             dct = ujson.loads(str)
             evt = msgEvent().from_dict(dct)
             msg_procedure.process(evt)  
